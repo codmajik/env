@@ -47,7 +47,7 @@ const formats: {
   },
   url: (key: string, value: string, options: StringFnUrlOptions) => {
     const { tld = true, protocol = true } = options
-    if (!require('validator/lib/isURL')(value, { require_tld: tld, require_protocol: protocol })) {
+    if (!require('validator/lib/isURL')(value, { require_tld: tld, require_valid_protocol: protocol })) {
       throw new Exception(
         options.message ||
           `Value for environment variable "${key}" must be a valid URL, instead received "${value}"`,
